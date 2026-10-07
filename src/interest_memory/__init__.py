@@ -14,7 +14,7 @@ def _fastembed() -> Embed:
     from fastembed import TextEmbedding
 
     model = TextEmbedding("BAAI/bge-small-en-v1.5")
-    return lambda texts: np.array(list(model.embed(list(texts))))
+    return lambda texts: np.array(list(model.embed(list(texts), batch_size=16)))
 
 
 def _unit(vecs: np.ndarray) -> np.ndarray:
